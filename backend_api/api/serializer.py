@@ -12,6 +12,8 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email']
 
 
+
+# TO CREATE A TOKEN PAIR(REFRESH AND ACCESS TOKEN), USER MUST BE AUTHENTICATED TO HAVE TOKEN PAIR
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
     @classmethod
@@ -27,7 +29,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
         return token
     
 
-
+# REGISTRATION AND PASSWORD VALIDATION
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
     password2 = serializers.CharField(write_only=True, required=True)

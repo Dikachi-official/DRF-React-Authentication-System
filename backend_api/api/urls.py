@@ -15,4 +15,10 @@ urlpatterns = [
 
     # DASHBOARD URL PAGE
     path('dashboard/', views.dashboard),
+
+    # TEST URL PAGE
+    path('test/', views.testEndPoint, name='test'),
+
+    # TO DISPLAY ALL THE ROUTES IN OUR API
+    path('', views.getRoutes),
 ]

@@ -1,28 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from "react-router-dom"
+import AuthContext from '../context/AuthContext'
+import banking from "../img/banking.jpg"
+
 
 
 function Loginpage() {
+
+
+    const { loginUser } = useContext(AuthContext)
+    const handleSubmit = e => {
+        e.preventDefault()
+        const email = e.target.email.value   //GET THE EMAIL FROM FRONTEND INPUT FROM(AUTHCONTEXT)
+        const password = e.target.password.value  //GET THE PASSWORD FROM FRONTEND INPUT FROM(AUTHCONTEXT)
+
+        email.length > 0 && loginUser(email, password)  //IF EMAIL LENGTH IS > 0, THENLOGIN USER
+
+        console.log(email)
+        console.log(password)
+        
+    }
+
+
     return (
         <div>
             <div style={{ margin: "50px 0px" }} />
-            <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+            <section className="vh-100%" style={{ backgroundColor: "grey" }}>
                 <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10">
                     <div className="card" style={{ borderRadius: "1rem" }}>
                         <div className="row g-0">
                         <div className="col-md-6 col-lg-5 d-none d-md-block">
-                            <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
-                            alt="login form"
-                            className="img-fluid"
-                            style={{ borderRadius: "1rem 0 0 1rem" }}
-                            />
+                            <img src={banking} alt="login form" className="img-fluid"
+                                style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "1rem 0 0 1rem" }}/>
                         </div>
                         <div className="col-md-6 col-lg-7 d-flex align-items-center">
                             <div className="card-body p-4 p-lg-5 text-black">
-                            <form>
+                            <form onSubmit={handleSubmit}> {/*onsubmmit of this form, it should run the "handlesubmit" code at the top*/}
                                 <div className="d-flex align-items-center mb-3 pb-1">
                                 <i
                                     className="fas fa-cubes fa-2x me-3"
@@ -47,6 +62,7 @@ function Loginpage() {
                                     type="email"
                                     id="form2Example17"
                                     className="form-control form-control-lg"
+                                    name="email"
                                 />
                                 <label className="form-label" htmlFor="form2Example17">
                                     Email address
@@ -57,6 +73,7 @@ function Loginpage() {
                                     type="password"
                                     id="form2Example27"
                                     className="form-control form-control-lg"
+                                    name="password"
                                 />
                                 <label className="form-label" htmlFor="form2Example27">
                                     Password
@@ -65,7 +82,7 @@ function Loginpage() {
                                 <div className="pt-1 mb-4">
                                 <button
                                     className="btn btn-dark btn-lg btn-block"
-                                    type="button"
+                                    type="submit"
                                 >
                                     Login
                                 </button>
@@ -94,18 +111,6 @@ function Loginpage() {
                 </div>
                 </div>
             </section>
-            <footer className="bg-light text-center text-lg-start">
-                <div
-                className="text-center p-3"
-                style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
-                >
-                © 2023 - till date Copyright:
-                <a className="text-dark" href="https://mdbootstrap.com/">
-                    Mikes👋
-                </a>
-                </div>
-            </footer>
-            <div style={{ margin: "50px 0px" }} />
         </div>
     )
 }

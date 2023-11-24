@@ -8,6 +8,7 @@ import Loginpage from "./views/Loginpage"
 import Registerpage from "./views/Registerpage"
 import Dashboard from "./views/Dashboard"
 import Navbar from "./views/Navbar"
+import Footer from "./views/Footer"
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route component={Registerpage} path="/register" exact />
           <Route component={Homepage} path="/" exact />
         </Switch>
+        <Footer/>
       </AuthProvider>
     </Router>
   );

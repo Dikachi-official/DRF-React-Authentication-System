@@ -14,7 +14,7 @@ function Loginpage() {
         const email = e.target.email.value   //GET THE EMAIL FROM FRONTEND INPUT FROM(AUTHCONTEXT)
         const password = e.target.password.value  //GET THE PASSWORD FROM FRONTEND INPUT FROM(AUTHCONTEXT)
 
-        email.length > 0 && loginUser(email, password)  //IF EMAIL LENGTH IS > 0, THENLOGIN USER
+        email.length > 0 && loginUser(email, password)  //IF EMAIL LENGTH IS > 0, THEN LOGIN USER
 
         console.log(email)
         console.log(password)
@@ -24,8 +24,7 @@ function Loginpage() {
 
     return (
         <div>
-            <div style={{ margin: "50px 0px" }} />
-            <section className="vh-100%" style={{ backgroundColor: "grey" }}>
+            <section className="" style={{ backgroundColor: "grey", marginTop: "8%" }}>
                 <div className="container py-5 h-100">
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col col-xl-10">

@@ -30,7 +30,7 @@ function Registerpage() {
     return (
         <div>
             <div style={{ margin: "50px 0px" }} />
-            <section className="vh-100%" style={{ backgroundColor: "grey" }}>
+            <section className="vh-100%" style={{ backgroundColor: "grey", marginTop: "8%" }}>
                 <div className="container py-5 ">
                 <div className="row d-flex justify-content-center align-items-center">
                     <div className="col col-xl-10">

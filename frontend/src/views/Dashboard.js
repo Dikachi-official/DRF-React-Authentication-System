@@ -19,6 +19,40 @@ function Dashboard() {
     }
 
 
+    /*=== make an api call to the get response at "TESTEND VIEW" ===*/
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const response = await api.get("/test/")
+                setRes(response.data.response)
+            } 
+            catch (error) {
+                console.log(error);
+                setRes("Something went wrong")
+            }
+        }
+        fetchData()
+    }, [])
+
+
+
+    
+    /*=== make an api call to the POST response at "TESTEND VIEW" ===*/
+    useEffect(() => {
+        const fetchPostData = async () => {
+          try{
+            const response = await api.post("/test/")
+            setRes(response.data.response)
+          } catch (error) {
+            console.log(error);
+            setRes("Something went wrong")
+          }
+        }
+        fetchPostData()
+      }, [])
+
+
+
 
     return (
         <div>
@@ -118,7 +152,7 @@ function Dashboard() {
                     </div>
                     </div>
                     <div className='alert alert-success'>
-                    <strong></strong>
+                        <strong>{response}</strong> {/* this response is the variable declared and assigned to "useState" at the top */}
                     </div>
                     <h2>Section title</h2>
                     <div className="table-responsive">

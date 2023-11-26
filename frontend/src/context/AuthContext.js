@@ -3,6 +3,7 @@ import jwt_decode from "jwt-decode";
 import {useHistory} from "react-router-dom"
 
 
+const swal = require('sweetalert2')
 const AuthContext = createContext();
 
 export default AuthContext
@@ -55,8 +56,8 @@ export const AuthProvider = ({ children }) => {
             setUser(jwt_decode(data.access)) /*=== SET THE ACCESS TOKEN TO USER FROM THE COLLLECTED TOKEN PAIR ABOVE ===*/
             localStorage.setItem("authTokens", JSON.stringify(data)) /*== SET THOSE TOKEN PAIRS TO THE LOCAL STORAGE ==*/
             history.push("/") /*=== REDIRECT TO HOME PAGE ===*/
-            
-            /*swal.fire({
+            //SWEET ALERT CODE 
+            swal.fire({
                 title: "Login Successful",
                 icon: "success",
                 toast: true,
@@ -64,21 +65,22 @@ export const AuthProvider = ({ children }) => {
                 position: 'top-right',
                 timerProgressBar: true,
                 showConfirmButton: false,
-            })*/
+            })
 
         } else {    
             console.log(response.status);
             console.log("there was a server issue");
             alert("Something went wrong" + response.status)
-            /*swal.fire({
-                title: "Username or passowrd does not exists",
+            //SWEET ALERT CODE 
+            swal.fire({
+                title: "Username or password doesn't exist",
                 icon: "error",
                 toast: true,
                 timer: 6000,
                 position: 'top-right',
                 timerProgressBar: true,
                 showConfirmButton: false,
-            })*/
+            })
         }
     }
 
@@ -102,7 +104,7 @@ export const AuthProvider = ({ children }) => {
 
         if(response.status === 201){
             history.push("/login")
-            /*swal.fire({
+            swal.fire({
                 title: "Registration Successful, Login Now",
                 icon: "success",
                 toast: true,
@@ -110,11 +112,11 @@ export const AuthProvider = ({ children }) => {
                 position: 'top-right',
                 timerProgressBar: true,
                 showConfirmButton: false,
-            })*/
+            })
         } else {
             console.log(response.status);
             console.log("there was a server issue");
-            /*swal.fire({
+            swal.fire({
                 title: "An Error Occured " + response.status,
                 icon: "error",
                 toast: true,
@@ -122,7 +124,7 @@ export const AuthProvider = ({ children }) => {
                 position: 'top-right',
                 timerProgressBar: true,
                 showConfirmButton: false,
-            })*/
+            })
         }
     }
 
@@ -135,7 +137,7 @@ export const AuthProvider = ({ children }) => {
         setUser(null)  /*=== CLEAR OUT USER ===*/
         localStorage.removeItem("authTokens")
         history.push("/login")    /*=== REDIRECT USER TO LOGIN PAGE AFTER LOGOUT ===*/
-        /*swal.fire({
+        swal.fire({
             title: "YOu have been logged out...",
             icon: "success",
             toast: true,
@@ -143,7 +145,7 @@ export const AuthProvider = ({ children }) => {
             position: 'top-right',
             timerProgressBar: true,
             showConfirmButton: false,
-        })*/
+        })
     }
 
 

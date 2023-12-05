@@ -34,7 +34,7 @@ function Navbar() {
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav" >
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <Link class="nav-link active" aria-current="page" to="/">Home</Link>
                         </li>
 
                         
